@@ -1,0 +1,9 @@
+{
+    "python.pythonPath": "~/.local/share/virtualenvs/in_out_management_reg-IIwv2D8A/bin/python",
+    "python.testing.pytestArgs": [
+        "reg_core"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": true
+}
