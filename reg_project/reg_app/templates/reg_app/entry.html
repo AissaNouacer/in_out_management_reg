@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html><head><title> البريد الوارد</title></head>
+<body>
+    {% if entries  %}
+    {% for item in entries %}
+    <p> الموضوع:{{item.subject}}</p>
+    <p> الباعث:{{item.sender}}</p>
+    <p> رقم المراسلة:{{item.num_of_file}}</p>
+    <p> تاريخ المراسلة:{{item.date_of_file}}</p>
+    <p>  الملف:{{item.files}}</p>
+    <p> تاريخ وصول المراسل:{{item.date_recived}}</p>
+    {{ item.user}}
+    
+    <br>
+    {% endfor %}
+    {% else %}
+    <p> Nothing to show</p>
+    {% endif %}
+</body>
+</html>
