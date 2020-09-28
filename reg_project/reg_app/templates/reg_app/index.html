@@ -1,12 +1,64 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>index</title>
-</head>
+{% extends 'reg_app/base.html' %}
+{% load static %}
 
-<body>
-<h1>
-    HELLO MAMA !
-</h1>
-</body>
-</html>
+
+{% block title%}
+الرئيسية
+{% endblock %}
+{%block content%}
+
+
+<a href="Logout/"><button  id="this_button"class="btn btn-danger float-right ">تسجيل الخروج</button></a>
+<br>
+<br>
+
+
+  <div class="container my-5 py-5 z-depth-1">
+    <!--Section: Content-->
+    <section class="px-md-5 mx-md-5 text-center dark-grey-text">
+ 
+      <h3 class="font-weight-bold mb-5">اختر البريد </h3>
+
+      <!--Grid row-->
+      <div class="row">
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4 mb-md-0">
+
+          <i class="fas fa-gem fa-3x blue-text"></i>
+
+          <p class="font-weight-bold my-3">البريد الوارد</p>
+
+          <p class="text-muted mx-md-5">كل ما يتعلق بالبريد الوارد</p>
+
+          <a class="btn btn-primary btn-md" href="entry/" role="button">البريد الوارد</a>
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4 mb-md-0">
+
+          <i class="fas fa-cloud-upload-alt fa-3x green-text"></i>
+
+          <p class="font-weight-bold my-3">البريد الصادر</p>
+
+          <p class="text-muted mx-md-5">كل ما يتعلق بالبريد الصادر.</p>
+
+          <a class="btn btn-green btn-md" href="sent/" role="button">البريد الصادر</a>
+
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+
+    </section>
+    <!--Section: Content-->
+
+
+  </div>
+
+
+{% endblock %}

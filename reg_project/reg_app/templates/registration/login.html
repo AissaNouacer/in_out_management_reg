@@ -1,0 +1,55 @@
+{% extends 'reg_app/base.html' %}
+{% load widget_tweaks %}
+
+{% block title %}تسجيل الدخول{% endblock %}
+
+{% block content %}
+<div class="container-fluid mt-3 mb-5">
+ <section style="background-image: url('http://deghardaia.education.gov.dz/wp-content/uploads/2020/01/fivicon.jpg.webp'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+    <!-- Mask & flexbox options-->
+    <div class="mask d-flex justify-content-center align-items-center">
+      <!-- Content -->
+      <div class="container py-5 my-5">
+      <div class="row d-flex align-items-center justify-content-center">
+          <!--Grid column-->
+          <div class="col-md-6 col-xl-5">
+  <div class="card">
+<div class="card-body z-depth-2 px-4">
+ <!-- Form -->
+ <form  style="color: #757575;" action="." method="post">
+<h3 class="font-weight-bold my-4 pb-2 text-center dark-grey-text">تسجيل الدخول</h3>
+ {% csrf_token %}
+ {{ form.non_field_errors}}
+
+<!-- Name -->
+<div class="md-form " >
+ {{form.username.errors}}
+  <i class="fa fa-user prefix grey-text text-right"></i>
+ <label for="{{form.name.id_for_label}}" class="text-center">اسم المستخدم</label>
+  {{ form.username | add_class:"form-control "  }}
+ </div>
+
+<!-- E-mai -->
+<div class="md-form">
+  {{form.password.errors}}
+  <i class="fas fa-key prefix grey-text"></i>
+<label class ="text-center" for="{{form.password.id_for_label}}">كلمة المرور</label>
+ {{ form.password | add_class:"form-control "  }}
+</div>
+ <div class="text-center my-3">
+                  <button class="btn btn-indigo btn-block">تسجيل الدخول</button>
+                </div>
+
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Form -->
+
+
+
+{% endblock %}

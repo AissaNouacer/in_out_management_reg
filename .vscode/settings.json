@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "~/.local/share/virtualenvs/in_out_management_reg-IIwv2D8A/bin/python",
+    "python.pythonPath": "/home/aissa/.local/share/virtualenvs/in_out_management_reg-IIwv2D8A/bin/python",
     "python.testing.pytestArgs": [
         "reg_core"
     ],

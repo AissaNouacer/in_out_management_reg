@@ -1,20 +1,54 @@
+{% extends 'reg_app/base.html' %}
+{% load  static %}
 <!DOCTYPE html>
-<html><head><title> البريد الوارد</title></head>
+<html><head>
+<title> {% block title%}البريد الوارد {% endblock %} </title></head>
 <body>
-    {% if entries  %}
-    {% for item in entries %}
-    <p> الموضوع:{{item.subject}}</p>
-    <p> الباعث:{{item.sender}}</p>
-    <p> رقم المراسلة:{{item.num_of_file}}</p>
-    <p> تاريخ المراسلة:{{item.date_of_file}}</p>
-    <p>  الملف:{{item.files}}</p>
-    <p> تاريخ وصول المراسل:{{item.date_recived}}</p>
-    {{ item.user}}
-    
-    <br>
-    {% endfor %}
-    {% else %}
-    <p> Nothing to show</p>
-    {% endif %}
+    {%block content%}
+
+
+    <!-- Editable table -->
+<div class="card">
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">البريد الوارد</h3>
+  <a href="/"><button  id="this_button"class="btn btn-danger float-right "> الرجوع إلى الرئسية</button></a>
+  <div class="card-body">
+    <div id="table" class="table-editable">
+      <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i
+            class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
+      <table class="table table-bordered table-responsive-md table-striped text-center">
+        <thead>
+          <tr>
+            <th class="text-center">الموضوع</th>
+            <th class="text-center">الباعث</th>
+            <th class="text-center">تاريخ الاجابة</th>
+            <th class="text-center">رقم المراسلة</th>
+            <th class="text-center">تاريخ المراسلة</th>
+            <th class="text-center">تاريخ الاستقبال</th>
+            <th class="text-center">الملف</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for item in  entries %}
+          <tr>
+            <td class="pt-3-half" contenteditable="true">{{item.subject}}</td>
+            <td class="pt-3-half" contenteditable="true">{{item.sender}}</td>
+            <td class="pt-3-half" contenteditable="true">{{item.date_response}}</td>
+            <td class="pt-3-half" contenteditable="true">{{item.num_of_file}}</td>
+            <td class="pt-3-half" contenteditable="true">{{item.date_of_file}}</td>
+            <td class="pt-3-half" contenteditable="true">{{item.date_recived}}</td>
+            <td class="pt-3-half" contenteditable="true">{{item.files}}</td>
+            <td class="pt-3-half" contenteditable="false"><a href="{{item.get_absolute_url}}">المزيد</a></td>
+
+
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- Editable table -->
+
+{% endblock %}
 </body>
 </html>

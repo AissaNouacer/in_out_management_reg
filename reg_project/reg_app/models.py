@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 
 class Entry(models.Model):
@@ -25,7 +26,7 @@ class Entry(models.Model):
         return self.subject
 
     def get_absolute_url(self):
-        reterse("entry_detail", kwargs={"pk": self.pk})
+        return reverse("reg_app:Entry_detail", kwargs={"entry_id": self.pk})
 
 
 class Sent(models.Model):
@@ -49,4 +50,4 @@ class Sent(models.Model):
         return self.subject
 
     def get_absolute_url(self):
-        return reverse("sent_detail", kwargs={"pk": self.pk})
+        return reverse("reg_app:sent_detail", kwargs={"sent_id": self.pk})
