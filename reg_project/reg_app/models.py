@@ -14,13 +14,13 @@ class Entry(models.Model):
     """
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    date_responded = models.DateField(auto_now=True)
+    date_responded = models.DateField(auto_now=False, blank=True)
     subject = models.CharField(max_length=150)
     sender = models.CharField(max_length=150)
-    files = models.FileField(upload_to=None, max_length=100)
+    files = models.FileField(upload_to=None, max_length=100, blank=True)
     num_of_file = models.IntegerField()
     date_of_file = models.DateField(auto_now=False, auto_now_add=False)
-    date_recived = models.DateField(auto_now=False, auto_now_add=True)
+    date_recived = models.DateField(auto_now=False, auto_now_add=False)
 
     def __str__(self):
         return self.subject

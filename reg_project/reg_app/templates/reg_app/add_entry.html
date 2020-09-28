@@ -1,0 +1,87 @@
+{% extends "reg_app/base.html" %}
+ 
+{% block title %}إضافة بريد جديد{% endblock title %}
+ 
+{% block content %}
+<div class="col-md-12">
+    <h4>إضافة بريد وارد</h4>
+         
+ <form method="POST" class="post-form" action="{% url 'reg_app:add_entry' %}"> 
+   {% csrf_token %} 
+   {% if form.non_field_errors %}
+        <div class="form-group text-error">
+            {{ form.non_field_errors }}
+        </div>
+    {% endif %}
+  <div class="container"> 
+ <br> 
+  <div class="form-group row"> 
+  <label class="col-sm-1 col-form-label"></label> 
+  <div class="col-sm-4"> 
+  <h3>أدخل تفاصيل البريد الوارد</h3> 
+  </div> 
+   </div> 
+   <div class="form-group row"> 
+  <label class="col-sm-2 col-form-label" for={{cr_usr.id}} id="{{cr_usr.id}}">المستخدم</label> 
+  <div class="col-sm-4"> 
+    {{form.user.errors}}
+    {{ form.user }}
+  </div> 
+   </div> 
+   <div class="form-group row"> 
+  <label class="col-sm-2 col-form-label">تاريخ الإجابة</label> 
+  <div class="col-sm-4"> 
+    {{form.date_responded.errors}}
+    {{ form.date_responded }} 
+  </div> 
+   </div> 
+  <div class="form-group row"> 
+  <label class="col-sm-2 col-form-label">:الموضوع</label> 
+  <div class="col-sm-4"> 
+    {{form.subject.errors}}
+    {{ form.subject }} 
+  </div> 
+   </div> 
+  <div class="form-group row"> 
+  <label class="col-sm-2 col-form-label">:الباعث</label> 
+  <div class="col-sm-4">
+      {{form.sender.errors}} 
+    {{ form.sender }} 
+  </div> 
+   </div> 
+   <div class="form-group row"> 
+  <label class="col-sm-2 col-form-label">:الملف</label> 
+  <div class="col-sm-4"> 
+      {{form.files.errors}}
+    {{ form.files }} 
+  </div> 
+   </div> 
+   <div class="form-group row"> 
+  <label class="col-sm-2 col-form-label">:رقم الملف</label> 
+  <div class="col-sm-4"> 
+      {{form.num_of_file.errors}}
+    {{ form.num_of_file }} 
+  </div> 
+   </div> 
+   <div class="form-group row"> 
+  <label class="col-sm-2 col-form-label">:تاريخ المراسلة</label> 
+  <div class="col-sm-4"> 
+      {{form.date_of_file.errors}}
+    {{ form.date_of_file }} 
+  </div> 
+   </div> 
+   <div class="form-group row"> 
+  <label class="col-sm-2 col-form-label">:تاريخ  الوصول</label> 
+  <div class="col-sm-4"> 
+      {{form.date_recived.errors}}
+    {{ form.date_recived }} 
+  </div> 
+   </div> 
+   <div class="form-group row"> 
+  <label class="col-sm-1 col-form-label"></label> 
+  <div class="col-sm-4"> 
+  <button type="submit" class="btn btn-success btn-lg">إضافة جديد</button>
+  </div> 
+   </div> 
+{% endblock %}
+  
