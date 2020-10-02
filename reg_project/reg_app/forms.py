@@ -12,7 +12,7 @@ class EntryForm(forms.ModelForm):
 
     class Meta:
         model = Entry
-        fields = ['user', 'date_responded', 'subject', 'sender', 'files',
+        fields = ['date_responded', 'subject', 'sender', 'files',
                   'num_of_file', 'date_of_file', 'date_recived']
         widgets = {
             'date_responded': DatePicker(format='%Y-%m-%d'),

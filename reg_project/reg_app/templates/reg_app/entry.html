@@ -9,13 +9,13 @@
 
     <!-- Editable table -->
 <div class="card">
-  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">البريد الوارد</h3>
-  <a href="/"><button  id="this_button"class="btn btn-danger float-right "> الرجوع إلى الرئسية</button></a>
+  
   <div class="card-body">
-    <div id="table" class="table-editable">
+  {% if entries  %}
+    <div id="table" >
       <span class="table-add float-right mb-3 mr-2"><a href="{% url 'reg_app:add_entry' %}" class="text-success"><i
             class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
-      <table class="table table-bordered table-responsive-md table-striped text-center">
+      <table class="table table-bordered  table-striped text-center">
         <thead>
           <tr>
             <th class="text-center">الموضوع</th>
@@ -30,14 +30,16 @@
         <tbody>
         {% for item in  entries %}
           <tr>
-            <td class="pt-3-half" contenteditable="true">{{item.subject}}</td>
-            <td class="pt-3-half" contenteditable="true">{{item.sender}}</td>
-            <td class="pt-3-half" contenteditable="true">{{item.date_response}}</td>
-            <td class="pt-3-half" contenteditable="true">{{item.num_of_file}}</td>
-            <td class="pt-3-half" contenteditable="true">{{item.date_of_file}}</td>
-            <td class="pt-3-half" contenteditable="true">{{item.date_recived}}</td>
-            <td class="pt-3-half" contenteditable="true">{{item.files}}</td>
-            <td class="pt-3-half" contenteditable="false"><a href="{{item.get_absolute_url}}">المزيد</a></td>
+            <td class="pt-3-half" >{{item.subject}}</td>
+            <td class="pt-3-half" >{{item.sender}}</td>
+            <td class="pt-3-half" >{{item.date_response}}</td>
+            <td class="pt-3-half" >{{item.num_of_file}}</td>
+            <td class="pt-3-half" >{{item.date_of_file}}</td>
+            <td class="pt-3-half" >{{item.date_recived}}</td>
+            <td class="pt-3-half" >{{item.files}}</td>
+            <td><center><a class="btn btn-sm btn-warning edit" name="{{ item.id }}">تعديل</a> <a class="btn btn-sm btn-danger delete" name="{{ item.id }}">حذف</a></center></td>
+            
+            <td class="pt-3-half" ><a href="{{item.get_absolute_url}}">المزيد</a></td>
 
 
           </tr>
@@ -45,6 +47,9 @@
         </tbody>
       </table>
     </div>
+    {% else %}
+    <p class="lead text-center btn-info"> ...ليس هنالك بريد وارد ...</p>
+    {% endif %}
   </div>
 </div>
 <!-- Editable table -->
